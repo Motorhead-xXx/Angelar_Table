@@ -1,0 +1,5 @@
+<div class="wrapBtn">
+  <button (click)="changeFilter(0)" class="statusBtn" [class.active]="filterStatus===0">All</button>
+  <button (click)="changeFilter(1)" class="statusBtn" [class.active]="filterStatus===1">Active</button>
+  <button (click)="changeFilter(2)" class="statusBtn" [class.active]="filterStatus===2">Not active</button>
+</div>

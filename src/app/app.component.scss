@@ -1,0 +1,38 @@
+.container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+
+  .tableWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-collapse: collapse;
+    border: 2px solid #000;
+    text-align: center;
+  }
+}
+
+//.colorRow{
+//  background: #e1f3e1;
+//}
+//
+//
+//.colorActiveStatus {
+//  color: #149500;
+//  font-weight: 800;
+//}
+//
+//.colorNotActiveStatus {
+//  color: #c50000;
+//  font-weight: 800;
+//}
+
+
+
+
+
+
+
