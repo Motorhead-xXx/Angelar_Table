@@ -1,4 +1,5 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Row} from "../row-table/row-table.component";
 
 @Component({
   selector: 'app-child-row-table',
@@ -7,7 +8,7 @@ import {Component, Input, Output} from '@angular/core';
 })
 export class ChildRowTableComponent{
 
-  @Input() data:any
+  @Input() data!:Row
 
   constructor() {
 

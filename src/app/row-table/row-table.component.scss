@@ -1,23 +1,37 @@
 .row-table {
   display: grid;
   align-items: center;
-  grid-template-columns:  2fr 2fr 2fr 2fr;
+  grid-template-columns:  0.5fr 2fr 2fr 2fr 2fr;
 
-  &:hover {
+  .activeColor {
+    color: #149500;
+    font-weight: 600;
+  }
+
+  .notActiveColor {
+    color: #ea1010;
+    font-weight: 600;
+  }
+
+  &.thereIsChild:hover, &:hover {
     background: #b3b061;
     cursor: pointer;
   }
 
-  &.colorRow {
+  &.colorRow{
     background: #e1f3e1;
   }
+  &.thereIsChild {
+    background: #c7e1c7;
+    &.openColor {
+      background: #b3b061;
+    }
+  }
 
-  &.change-color {
-    background: #b3b061;
+  .d-td {
+    border: 1px solid #000;
+    padding: 10px;
   }
 }
 
-.d-td {
-  border: 1px solid #000;
-  padding: 10px;
-}
+

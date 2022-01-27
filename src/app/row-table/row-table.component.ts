@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NewServiceService} from "../new-service.service";
 
-export interface Rows {
+export interface Row {
   id: number
   parentId: number
   isActive: boolean
@@ -16,12 +16,17 @@ export interface Rows {
   styleUrls: ['./row-table.component.scss']
 })
 export class RowTableComponent {
-  @Input() tableItem: Rows | undefined
-  @Input() children: Rows[] | undefined
+  @Input() tableItem!: Row
+  @Input() children!: Row[]
   toggle = false
 
   constructor(private service:NewServiceService) {
+
   }
+
+  ngOnInit(){
+  console.log(this.children.length)
+}
 
   toggleChildrenRow() {
     this.toggle = !this.toggle
