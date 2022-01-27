@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NewServiceService} from "./new-service.service";
 import {arrayTable} from "../jsonArray/arrayTable"
+import {Row} from "./row-table/row-table.component";
 
 @Component({
   selector: 'app-root',
@@ -8,22 +9,22 @@ import {arrayTable} from "../jsonArray/arrayTable"
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  public tableArr = arrayTable
-  public parentsArray: any[] = []
+  public tableArr:Row[]
+  public parentsArray: Row[] = []
 
   constructor(private service: NewServiceService) {
+    this.tableArr = arrayTable
   }
 
   ngOnInit() {
-    this.parentsArray = arrayTable.filter(f => !f.parentId);
     this.service.status$.subscribe((statusFilter) => {
       switch (statusFilter) {
             case 1:
-              return this.parentsArray = arrayTable.filter(f => f.isActive && !f.parentId)
+              return this.parentsArray = arrayTable.filter(f => f.isActive)
             case 2:
-              return this.parentsArray = arrayTable.filter(f => !f.isActive && !f.parentId)
+              return this.parentsArray = arrayTable.filter(f => !f.isActive)
             default:
-              return this.parentsArray = arrayTable.filter(f => !f.parentId)
+              return this.parentsArray = arrayTable
           }
     })
   }

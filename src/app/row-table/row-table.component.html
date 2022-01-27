@@ -1,8 +1,9 @@
-<div class='row-table' [class.change-color]="toggle" (click)="toggleChildrenRow()">
-  <div class="d-td">{{tableItem?.isActive | yesNo}}</div>
-  <div class="d-td">{{tableItem?.balance}}</div>
-  <div class="d-td">{{tableItem?.name}}</div>
-  <div class="d-td">{{tableItem?.email}}</div>
+<div class='row-table' [class]="{thereIsChild:children.length,openColor:children.length && toggle }" (click)="toggleChildrenRow()">
+  <div class="d-td">{{tableItem.id}}</div>
+  <div class='d-td {{tableItem.isActive ? "activeColor": "notActiveColor"}}'>{{tableItem.isActive | yesNo}}</div>
+  <div class="d-td">{{tableItem.balance}}</div>
+  <div class="d-td">{{tableItem.name}}</div>
+  <div class="d-td">{{tableItem.email}}</div>
 </div>
 <ng-container *ngIf="toggle">
   <app-child-row-table *ngFor="let child of children" [data]="child"></app-child-row-table>
