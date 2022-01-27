@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {NewServiceService} from "../new-service.service";
 
 export interface Rows {
   id: number
@@ -19,6 +20,8 @@ export class RowTableComponent {
   @Input() children: Rows[] | undefined
   toggle = false
 
+  constructor(private service:NewServiceService) {
+  }
 
   toggleChildrenRow() {
     this.toggle = !this.toggle

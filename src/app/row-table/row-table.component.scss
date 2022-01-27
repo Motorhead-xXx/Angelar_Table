@@ -1,21 +1,23 @@
 .row-table {
   display: grid;
   align-items: center;
-  grid-template-columns:  1fr 2fr 2fr 2fr 2fr;
-    &:hover {
-      background: #b3b061;
-      cursor: pointer;
-    }
+  grid-template-columns:  2fr 2fr 2fr 2fr;
 
-    &.none {
-      display: none;
-    }
+  &:hover {
+    background: #b3b061;
+    cursor: pointer;
+  }
 
-    &.change-color {
-      background: #b3b061;
-    }
+  &.colorRow {
+    background: #e1f3e1;
   }
-  .d-td {
-    border: 1px solid #000;
-    padding: 10px;
+
+  &.change-color {
+    background: #b3b061;
   }
+}
+
+.d-td {
+  border: 1px solid #000;
+  padding: 10px;
+}

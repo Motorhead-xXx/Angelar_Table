@@ -1,21 +1,20 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component} from '@angular/core';
+import {NewServiceService} from "../../new-service.service";
 
 @Component({
   selector: 'app-button-wrapper',
   templateUrl: './button-wrapper.component.html',
   styleUrls: ['./button-wrapper.component.scss']
 })
-export class ButtonWrapperComponent implements OnInit {
-  @Output() filterChanged = new EventEmitter<0 | 1 | 2>()
+export class ButtonWrapperComponent {
   filterStatus = 0;
 
-  ngOnInit() {
+  constructor(private service: NewServiceService) {
   }
-constructor() {}
 
   changeFilter(status: 0 | 1 | 2) {
-    this.filterStatus = status
-    this.filterChanged.emit(status)
+    this.filterStatus = status;
+    this.service.status$.next(status)
   }
 
 }

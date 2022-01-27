@@ -10,29 +10,26 @@ import {arrayTable} from "../jsonArray/arrayTable"
 export class AppComponent implements OnInit {
   public tableArr = arrayTable
   public parentsArray: any[] = []
-  statusFilter: 0 | 1 | 2 = 0
 
-  constructor(service: NewServiceService) {}
+  constructor(private service: NewServiceService) {
+  }
 
   ngOnInit() {
-    this.parentsArray = arrayTable.filter(f => !f.parentId)
+    this.parentsArray = arrayTable.filter(f => !f.parentId);
+    this.service.status$.subscribe((statusFilter) => {
+      switch (statusFilter) {
+            case 1:
+              return this.parentsArray = arrayTable.filter(f => f.isActive && !f.parentId)
+            case 2:
+              return this.parentsArray = arrayTable.filter(f => !f.isActive && !f.parentId)
+            default:
+              return this.parentsArray = arrayTable.filter(f => !f.parentId)
+          }
+    })
   }
 
 
   getChildren(parentId: number) {
     return this.tableArr.filter(f => f.parentId === parentId)
-  }
-
-  statusChange(statusProps: 0 | 1 | 2) {
-    this.statusFilter = statusProps;
-
-    switch (this.statusFilter) {
-      case 1:
-        return this.parentsArray = arrayTable.filter(f => f.isActive && !f.parentId)
-      case 2:
-        return this.parentsArray = arrayTable.filter(f => !f.isActive && !f.parentId)
-      default:
-        return this.parentsArray = arrayTable.filter(f => !f.parentId)
-    }
   }
 }
