@@ -1,6 +1,6 @@
 <div class="container">
   <div class="tableWrapper">
-    <app-header-table (filterStatus)="statusChange($event)"></app-header-table>
+    <app-header-table></app-header-table>
     <app-row-table *ngFor="let item of parentsArray" [tableItem]="item" [children]="getChildren(item.id)"></app-row-table>
   </div>
 </div>
